@@ -10,15 +10,18 @@ Author: Grace Powell
 - [EDA and Modelling](#EDA-and-Modelling)
     - [Features](#Featuress)
     - [Model Scores](#Model-Scores)
+    - [Coefficients](#Coefficients)
 - [Conclusions and Recommendations](#Conclusions-and-Recommendations)
 - [Sources](#Sources)
 
 ## Problem Statement
 
-More than one-third of adults and 18.5% of children are obese. Increasing the access to healthy foods have been in the forefront of policymakers agenda in order to address this worldwide problem. What are some of the main reasons for high obesity rate and what ways we can fix this? This in the main question we are seeking to answer in this analysis specifically looking at whether the number of food stores and the availability of local produce in each state can predict the obesity rate. We combined data on food environments from the United States Department of Agriculture in order to analyze the relationships between a person's food environment and the obesity rate in each state. The data set consists of the availability of the number of grocery stores, convenience stores, and full-service and the access to local produce. We conducted a regression analysis to invesitgage the relationship between the target (obesity) and the independent variables (food environment variables).
+Almost two-fifths of the global population aged 18 and over is considered overweight, with more than half a billion considered obese. Without action, 1.9 billion people will remain at risk for poor health. Increasing the access to healthy foods have been in the forefront of policymakers agenda in order to address this worldwide problem. What are some of the main reasons for high obesity rate and what ways we can fix this? These are the main questions we are seeking to answer in this analysis and specifically looking at whether the number of food stores and the availability of local produce in each state can predict the obesity rate. We combined data on food environments from the United States Department of Agriculture in order to analyze that  relationship in an effort, to help the World Health Organization pinpoint the factors that can best lower obesity rates in each state and reach the 2025 target of ending the increase of obesity. 
 
 
 ## Data 
+
+The data set consists of the availability of the number of grocery stores, convenience stores, and the access to stores and local produce. 
 
 [data dictionary](https://www.ers.usda.gov/data-products/food-access-research-atlas/download-the-data/)
 
@@ -47,7 +50,7 @@ The final cleaned data frame of the Food Environment Atlas that we looked at con
 
 Before running the model, we checked for collinearity between the features and conducted a Random Forest model to see which variables had the highest importance score to then use in our regression models. The features with the highest score were the percent of local farms, the count of grocery stores, the count of SNAPS-Authorized stores, the count of WICS Authorized stores, the rate of adults with diabetes.
 
-### Features 
+#### Features 
 
 | Name                  | Description                                      |
 |-----------------------|--------------------------------------------------|
@@ -88,6 +91,7 @@ Once the features were identified, we ran a linear regression, lasso, ridge, ran
 | Adaboost                                     |      2.70       |      2.45      |   .70             |      .65        
 
 
+#### Coefficients 
 
 | Name                  | Coefficient            
 |-----------------------|--------------|
@@ -111,7 +115,7 @@ The top features with the largest coefficient and value-added to obesity rate am
 <img src="./Visualizations/testing_scores.png"  width="700" height="400">
 
 
-This analysis showed how access to different types of food stores is an indicator of obesity rates among adults and found that there is a relationship between access to food stores and obesity among adults.  Throughout our analysis, areas with low access to healthy food options tend to have higher adult obesity and diabetes rates. However, the model scores were not very high and provide evidence that these factors were the only variables affecting obesity. In the U.S., healthier food items tend to be a lot more expensive than unhealthy food items. As a result, even if the counties had a lot of different food options and easy access to healthier food stores, a low-income household will choose the cheapest option and ignore the health consequences.  Some counties had a small number of grocery stores and access to healthy food options, and many households do not have access to a car. The lack of access to supermarkets has a greater chance of health challenges such as diabetes, heart disease, and cancer. Unhealthy food may be a lot cheaper in the short run but there is significant evidence that unhealthy eating will lead to diabetes, cardiovascular disease, and other life-threatening diseases. The consequences, in the long run, are a lot worse. In order to end obesity in the U.S., we need to make healthier food options more affordable. If we were to conduct this study again, we would want to look at the prices of the food items and make interaction terms with the price variables and the store's variables. Prices have a lot of impact on what Americans choose to eat. Therefore, the regression with food prices might have a higher score and show a stronger relationship to the obesity rate in adults. We would also want to analyze changes in obesity rate within each county and analyze more closely the relationship with region and obesity rates.
+This analysis showed how the access to food stores and the number of food stores available is an indicator of obesity rates among adults and found that there is a relationship between access to food stores and obesity among adults. Throughout our analysis, areas with low access to healthy food options tend to have higher adult obesity and diabetes rates. However, the model scores never reached above a .73 on the testing so that provides evidence that these factors are not the only variables affecting obesity. In the U.S., healthier food items tend to be a lot more expensive than unhealthy food items. As a result, even if the counties had a lot of different food options and easy access to healthier food stores, a low-income household will choose the cheapest option and ignore the health consequences.  Some counties had a small number of grocery stores and access to healthy food options, and many households do not have access to a car. The lack of access to supermarkets has a greater chance of health challenges such as diabetes, heart disease, and cancer. Unhealthy food may be a lot cheaper in the short run but there is significant evidence that unhealthy eating will lead to diabetes, cardiovascular disease, and other life-threatening diseases. The consequences, in the long run, are a lot worse. In order to end obesity in the U.S., we need to make healthier food options more affordable. If we were to conduct this study again, we would want to look at the prices of the food items and make interaction terms with the price variables and the store's variables. Prices have a lot of impact on what Americans choose to eat. Therefore, the regression with food prices might have a higher score and show a stronger relationship to the obesity rate in adults. We would also want to analyze changes in the obesity rate within each county and analyze more closely the relationship with the region and obesity rates.
 
 
 ## Sources 
