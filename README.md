@@ -13,7 +13,7 @@
 
 ## Problem Statement
 
-More than one-third of adults and 18.5% of children are obese. Increasing the access to healthy foods have been in the forefront of policymakers agenda in order to address this worldwide problem. The question we are seeking to answer in this analysis is whether the number of food stores and the availability of local produce in each county can predict the obesity rate for the state. We combined data on food environments from the United States Department of Agriculture in order to analyze the relationships between a person's food environment and the obesity rate of the state. The data set consists of the availability of the number of grocery stores, convenience stores, and full-service and the access to local produce. The data also puts into account the number of households without cars and are more than a mile away from grocery stores. 
+More than one-third of adults and 18.5% of children are obese. Increasing the access to healthy foods have been in the forefront of policymakers agenda in order to address this worldwide problem. The question we are seeking to answer in this analysis is whether the number of food stores and the availability of local produce in each county can predict the obesity rate for the state. We combined data on food environments from the United States Department of Agriculture in order to analyze the relationships between a person's food environment and the obesity rate of the state. The data set consists of the availability of the number of grocery stores, convenience stores, and full-service and the access to local produce. 
 
 ## Data 
 
