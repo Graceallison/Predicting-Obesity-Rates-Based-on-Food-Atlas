@@ -77,22 +77,21 @@ The top features with the largest coefficient and value added to obesity rate am
 ### Model Scores 
 
 
-
 |Model                                         | RMSE Train      | RMSE Test      | R2 Train          |  R2 Test  
 |-------------------------------------------   |-----------------|----------------|-------------------|----------
-| Baseline                                     |      4.48       |      4.46      |       --          |       --
+| Baseline                                     |      4.48       |      4.46      |   .0              |     -.05
 | Linear Regression with all features          |      1.22       |      2.26      |   .92             |      .62
 | Linear Regression with Random Forest features|      2.34       |      2.25      |   .75             |      .73
 | Linear Regression with correlated features   |      2.25       |      2.39      |   .73             |      .72
 | Ridge                                        |      2.33       |      2.38      |   .73             |      .72
 | Lasso                                        |      2.33       |      2.38      |   .73             |      .72
 | Random Forest                                |      2.07       |      2.46      |   .78             |      .71 
-| Adaboost                                     |      2.70       |      2.45      |   .70             |      .65            
+| Adaboost                                     |      2.70       |      2.45      |   .70             |      .65        
 
 
 <img src="./Visualizations/predictions.png"  width="700" height="400">
 
-<img src="./Visualizations/testing_scores.png"  width="700" height="400">
+
 
 
 
