@@ -8,7 +8,6 @@ Author: Grace Powell
 - [Data](#Data)
 - [Executive Summary](#Executive-Summary)
 - [EDA and Modelling](#EDA-and-Modelling)
-- [Modelling](#Modelling)
     - [Features](#Featuress)
     - [Model Scores](#Model-Scores)
 - [Conclusions and Recommendations](#Conclusions-and-Recommendations)
@@ -27,28 +26,42 @@ More than one-third of adults and 18.5% of children are obese. Increasing the ac
 |File name| Description|
 |---|---|
 |[Acess to Food and Stores](./Data/Acess_food.xlsx)| Store/restaurant proximity, food prices, food and nutrition assistance programs, and community characteristics|
-|[Local](./Data/DataDownloadfull.xls)|The number of farms in the county that sell at least some products directly to final consumers. This includes sales from roadside stands, farmers markets, pick-your-own, door-to-door.|
+|[Local](./Data/DataDownloadfull.xls)|The number of farms in the county that sell at least some products directly to consumers. This includes sales from roadside stands, farmers markets, pick-your-own, door-to-door.|
 |[Health](./Data/DataDownloadfull.xls)| The number of "fitness and recreation centers" in a county, adults and children who have self-reported participating in any kind of physical activity that increased their heart rate and made them breathe hard some of the time for a total of at least 60 minutes per day on each of the 7 days before the survey.|
 |[Life Expectancy](./Data/Life_Expectancy.xlsx)|Male and Female life expectancy from 1985 to 2010. |
-|[Obesity](./Data/Obesity.xlsx)| Obesity rates and Diabete rates among children in 2008 and 2013.|
+|[Obesity](./Data/Obesity.xlsx)| Percent of peopl with Diabetes and Obesity in 2008 and 2013.|
 
 
 ## Executive Summary
 
-A food atlas or a “food desert” is an area with limited access to affordable and healthy food. The rate of diabetes and obesity among Americans continues to increase.  The increase in supermarkets that are half a mile distance from households has resulted in a lower BMI. A person’s food environment can greatly affect obesity rates in the U.S.  People living in low-income neighborhoods have poorer health and higher rates of obesity. The distance to restaurants, fast food restaurants, and grocery stores can impact your eating choices. 
+A food atlas or a “food desert” is an area with limited access to affordable and healthy food. The rate of diabetes and obesity among Americans continues to increase and this may be due to a lack of access to healthy food options. Studies found that and increase in supermarkets that are half a mile distance from households has resulted in a lower BMI.  People living in low-income neighborhoods have poorer health and higher rates of obesity. The distance to restaurants, fast food restaurants, and grocery stores can impact your eating choices. 
 
-Although we have a better understanding of what is considered a healthy diet, many Americans don’t have access to affordable and healthy food. Americans are also choosing not to follow a healthy lifestyle because of the increased price of the food items. Lower-income households are relying more on “empty calorie” food that is readily available at convenience stores and fast-food restaurants. The U.S. Office of Agriculture found that 2.3 million people live more than a mile from the grocery store and don’t own a car. It is also difficult for large supermarkets to find enough space to build their store in urban areas. As a result, the creation of more supermarkets and grocery stores are seen as undesirable. In more rural areas, people lack pubic transportation and the number of grocery stores is growing at a much smaller rate as compared to the rate of fast-food restaurants. Philadelphia had the second-lowest number of supermarkets among other U.S. major cities and lower-income neighborhoods at thirty percent fewer food stores than higher-income neighborhoods. The emergence of food deserts came with more upper-class households leaving the cities to go to the suburban areas. Studies have found that obesity stems from unhealthy eating habits. Americans have limited access to adequate food and people are at risk for food insecurity and obesity. The U.S. has one of the highest rates in food insecurity when compared to other countries. In order to combat obesity, we need to make it a priority that everyone has equal access to affordable and healthier food choices. A healthy food environment refers to having easy access to supermarkets, farmers' markets, and convenience stores.
+A person’s food environment can greatly affect obesity rates in the U.S. Although we have a better understanding of what is considered a healthy diet, many Americans don’t have access to affordable and healthy food. Americans are also choosing not to follow a healthy lifestyle because of the increased price of the food items. Lower-income households are relying more on “empty calorie” food that is readily available at convenience stores and fast-food restaurants. The U.S. Office of Agriculture found that 2.3 million people live more than a mile from the grocery store and don’t own a car. It is also difficult for large supermarkets to find enough space to build their store in urban areas. As a result, the creation of more supermarkets and grocery stores are seen as undesirable. In more rural areas, people lack pubic transportation and the number of grocery stores is growing at a much smaller rate as compared to the rate of fast-food restaurants. Philadelphia had the second-lowest number of supermarkets among other U.S. major cities and lower-income neighborhoods at thirty percent fewer food stores than higher-income neighborhoods. The emergence of food deserts came with more upper-class households leaving the cities to go to the suburban areas. Obesity stems from unhealthy eating habits. The  U.S. has one of the highest rates in food insecurity when compared to other countries. In order to combat obesity, we need to make it a priority that everyone has equal access to affordable and healthier food choices. A healthy food environment refers to having easy access to supermarkets, farmers' markets, and convenience stores.
 
-We seek to show how your food environment can help determine obesity rates for each county in all fifty states of the U.S. We predict that the number of unhealthy food options will cause an increase in the obesity levels in the county. Counties with access to healthier food choices will have a negative correlation with obesity rates.
+We seek to show how your food environment can help determine obesity rates for each state in the U.S. We predict that the number of unhealthy food options will be an accurate predictor of obesity rate. 
 
  
 ## EDA and Modelling
 
-The version of the Food Environment Atlas we looked at consists of 3,139 observations between 2007-2013 including access and proximity to a grocery store for populations; SNAP affiliated stores, WICS affiliated stores, percent of people with low access to stores, percent of people with no cars and farmers' markets that report direct selling of their produce. We compared the $R^2$ and the coefficients of the features to understand the relationship between the obesity rate the the food environment. 
+The final cleaned data frame of the Food Environment Atlas that we looked at consists of 3,139 observations between 2007-2013 including access and proximity to a grocery store for populations; SNAP affiliated stores, WICS affiliated stores, percent of people with low access to stores, percent of people with no cars and the number farmers' markets that report direct selling of their produce and percent of people with diabetes.  We compared the $R^2$ and the coefficients of the features to understand the relationship between the obesity rate the food environment. 
 
-Before running the model, we checked for collinearity between the features so that the model would have a more accurate prediction and removed any columns that contained more than one hundred null values that we were not able to fill with outside research. We also conducted a Random Forest model to see which variables had the highest importance score to then run in our linear regression models. The features with the highest score were the percent of local farms, the count of grocery stores, the count of SNAPS-Authorized stores, the count of WICS Authorized stores, the rate of adults with diabetes.
+Before running the model, we checked for collinearity between the features and conducted a Random Forest model to see which variables had the highest importance score to then use in our regression models. The features with the highest score were the percent of local farms, the count of grocery stores, the count of SNAPS-Authorized stores, the count of WICS Authorized stores, the rate of adults with diabetes.
 
-Once the data is cleaned and the collinearity and the important features were analyzed, we ran a linear regression, lasso, ridge, random forest and Adaboost on the Random Forest to find the most important features and answer our problem statement.  The obesity rates ranged from less than 5 and slightly over 60. The first linear regression model contained all features and as a result, extremely overfit with a training $R^2$ score of .92 and a testing $R^2$ score of .64.  Then we ran a linear regression model with the Random Forest features, the training score was .78 and .71 We also ran a linear model with features that had a correlation above .1 with Obesity rates were used as the predictors in the next linear regression model. The model had an $R^2$ for the training test of .75 and an $R^2$ of .73 for the testing set. This was also very overfitted and in order to fix this, we ran a lasso and ridge model. After running the lasso model, the r2 was .73  for the training set and .72 for the testing set. The Ridge model suffered from overfitting with a training and testing score of .914 and .67. 
+Once the features were identified, we ran a linear regression, lasso, ridge, random forest, and Adaboost on the Random Forest to find the most important features and answer our problem statement.  The obesity rates ranged from less than 5 and slightly over 60. The first linear regression model contained all features and as a result, extremely overfit with a training $R^2$ score of .92 and a testing $R^2$ score of .64.  Then we ran a linear regression model with the Random Forest features, the training score was .78 and. 71 We also ran a linear model with features that had a correlation above .1 with Obesity rates were used as the predictors in the next linear regression model. The model had a $R^2$ for the training test of .75 and a $R^2$ of .73 for the testing set. We then, ran a lasso, ridge model, random forest and Adaboost on random forest. The scores for the models are stated below. The best model was the lasso and ridge with .73 for the training and a.73 for the testing set. 
+
+
+|Model                                         | RMSE Train      | RMSE Test      | R2 Train          |  R2 Test  
+|-------------------------------------------   |-----------------|----------------|-------------------|----------
+| Baseline                                     |      4.48       |      4.46      |   .0              |     -.05
+| Linear Regression with all features          |      1.22       |      2.26      |   .92             |      .62
+| Linear Regression with Random Forest features|      2.34       |      2.25      |   .75             |      .73
+| Linear Regression with correlated features   |      2.25       |      2.39      |   .73             |      .72
+| Ridge                                        |      2.33       |      2.38      |   .73             |      .72
+| Lasso                                        |      2.33       |      2.38      |   .73             |      .72
+| Random Forest                                |      2.07       |      2.46      |   .78             |      .71 
+| Adaboost                                     |      2.70       |      2.45      |   .70             |      .65        
+
+
 
 | Name                  | Coefficient            
 |-----------------------|--------------|
@@ -91,19 +104,7 @@ The top features with the largest coefficient and value-added to obesity rate am
 
 
 
-### Model Scores 
-
-
-|Model                                         | RMSE Train      | RMSE Test      | R2 Train          |  R2 Test  
-|-------------------------------------------   |-----------------|----------------|-------------------|----------
-| Baseline                                     |      4.48       |      4.46      |   .0              |     -.05
-| Linear Regression with all features          |      1.22       |      2.26      |   .92             |      .62
-| Linear Regression with Random Forest features|      2.34       |      2.25      |   .75             |      .73
-| Linear Regression with correlated features   |      2.25       |      2.39      |   .73             |      .72
-| Ridge                                        |      2.33       |      2.38      |   .73             |      .72
-| Lasso                                        |      2.33       |      2.38      |   .73             |      .72
-| Random Forest                                |      2.07       |      2.46      |   .78             |      .71 
-| Adaboost                                     |      2.70       |      2.45      |   .70             |      .65        
+### Model Outcome
 
 
 <img src="./Visualizations/predictions.png"  width="700" height="400">
