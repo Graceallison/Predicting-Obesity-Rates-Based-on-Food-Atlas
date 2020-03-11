@@ -1,12 +1,15 @@
 # Predicting-Obesity-Rate-Based-on-Food-Atlas
 
+General Assembly | Data Science Immersive <br>
+Author: Grace Powell
+
 ## Contents
 - [Problem Statement](#Problem-Statement)
-- [Executive Summary](#Executive-Summary)
 - [Data](#Data)
+- [Executive Summary](#Executive-Summary)
 - [EDA and Modelling](#EDA-and-Modelling)
 - [Modelling](#Modelling)
-    - [Feature](#Features)
+    - [Features](#Featuress)
     - [Model Scores](#Model-Scores)
 - [Conclusions and Recommendations](#Conclusions-and-Recommendations)
 - [Sources](#Sources)
