@@ -47,8 +47,34 @@ The final cleaned data frame of the Food Environment Atlas that we looked at con
 
 Before running the model, we checked for collinearity between the features and conducted a Random Forest model to see which variables had the highest importance score to then use in our regression models. The features with the highest score were the percent of local farms, the count of grocery stores, the count of SNAPS-Authorized stores, the count of WICS Authorized stores, the rate of adults with diabetes.
 
+### Features 
+
+| Name                  | Description                                      |
+|-----------------------|--------------------------------------------------|
+| PCT_DIABETS_ADULTS08  | Adult diabetes rate in 2008                      |
+| PCT_DIABETES_ADULTS13 | Adult Diabetes rate in 2013                      |
+| RECFAC09              | Number of fitness facilities                     |
+| GROC09                | Count of grocery stores                          |
+| SUPERC                | Count of supercenter and superstores             |
+| SNAPS12               | SNAP(food stamp)-Authorized stores               |
+| WICS12                | WIC(federal assistant program)-authorized stores |
+| LACCESS_POP10         | Count of population- low access to store         |
+| PCT_LACCESS_POP10     | Percent of population - low access to store      |
+| LACCESS_LOWI10        | Low income and low access to store, 2010         |
+| PCT_LACCESS_LOWI10    | Percent Low income and low access to store, 2010 |
+| LACCESS_HHNV10        | Households, no car & low access to store, 2010   |
+| PCT_LACCESS_HHNV10    | Percent of households no car and low access      |
+| LACCESS_CHILD10       | Child Low Access to Car                          |
+| SNAPSPTH12            | SNAP-authorized stores/1,000 pop                 |
+| GHVEG_FARMS07         | Greenhouse vegetable and fresh herb farms        |
+| FMRKT09               | Number of Farmer's Markets                       |
+| SPECS09               | Number of Specialty Stores                       |
+| CONVS09               | Number of Convenience Stores                     |
+| PCT_LOCLFARM07        | Farms with direct sales                          |                                                      
+
 Once the features were identified, we ran a linear regression, lasso, ridge, random forest, and Adaboost on the Random Forest to find the most important features and answer our problem statement.  The obesity rates ranged from less than 5 and slightly over 60. The first linear regression model contained all features and as a result, extremely overfit with a training $R^2$ score of .92 and a testing $R^2$ score of .64.  Then we ran a linear regression model with the Random Forest features, the training score was .78 and. 71 We also ran a linear model with features that had a correlation above .1 with Obesity rates were used as the predictors in the next linear regression model. The model had a $R^2$ for the training test of .75 and a $R^2$ of .73 for the testing set. We then, ran a lasso, ridge model, random forest and Adaboost on random forest. The scores for the models are stated below. The best model was the lasso and ridge with .73 for the training and a.73 for the testing set. 
 
+#### Model Scores 
 
 |Model                                         | RMSE Train      | RMSE Test      | R2 Train          |  R2 Test  
 |-------------------------------------------   |-----------------|----------------|-------------------|----------
@@ -77,43 +103,13 @@ Once the features were identified, we ran a linear regression, lasso, ridge, ran
 
 The top features with the largest coefficient and value-added to obesity rate among all the models are the percent of people with lowe access to food stores, number of WICS affiliated stores per population of 1,000, number of convenience stores per population of 1,000, number of grocery stores, number of SNAP-affiliated store, percent of people that have no vehicle and low access to the store.  As the number of convencience stores increased by one, the obesity rate decreased by .103, all else remaining constant. When the number of grocery stores increases by one, the obesity rate will decrease .156, all else remaining constant. This provides evidence that it's hard for people to eat a healthy diet when they don’t have access to it, and this is the main reason why we still have high obesity rates in many parts of the country. Increasing the amount of food options and making it easier for people to access it will help to lower the obesity rates in the state. 
 
-### Features 
 
-| Name                  | Description                                      |
-|-----------------------|--------------------------------------------------|
-| PCT_DIABETS_ADULTS08  | Adult diabetes rate in 2008                      |
-| PCT_DIABETES_ADULTS13 | Adult Diabetes rate in 2013                      |
-| RECFAC09              | Number of fitness facilities                     |
-| GROC09                | Count of grocery stores                          |
-| SUPERC                | Count of supercenter and superstores             |
-| SNAPS12               | SNAP(food stamp)-Authorized stores               |
-| WICS12                | WIC(federal assistant program)-authorized stores |
-| LACCESS_POP10         | Count of population- low access to store         |
-| PCT_LACCESS_POP10     | Percent of population - low access to store      |
-| LACCESS_LOWI10        | Low income and low access to store, 2010         |
-| PCT_LACCESS_LOWI10    | Percent Low income and low access to store, 2010 |
-| LACCESS_HHNV10        | Households, no car & low access to store, 2010   |
-| PCT_LACCESS_HHNV10    | Percent of households no car and low access      |
-| LACCESS_CHILD10       | Child Low Access to Car                          |
-| SNAPSPTH12            | SNAP-authorized stores/1,000 pop                 |
-| GHVEG_FARMS07         | Greenhouse vegetable and fresh herb farms        |
-| FMRKT09               | Number of Farmer's Markets                       |
-| SPECS09               | Number of Specialty Stores                       |
-| CONVS09               | Number of Convenience Stores                     |
-| PCT_LOCLFARM07        | Farms with direct sales                          |                                                      
-
-
-
-### Model Outcome
-
+## Conclusions and Recommendations
 
 <img src="./Visualizations/predictions.png"  width="700" height="400">
 
 <img src="./Visualizations/testing_scores.png"  width="700" height="400">
 
-
-
-## Conclusions and Recommendations
 
 This analysis showed how access to different types of food stores is an indicator of obesity rates among adults and found that there is a relationship between access to food stores and obesity among adults.  Throughout our analysis, areas with low access to healthy food options tend to have higher adult obesity and diabetes rates. However, the model scores were not very high and provide evidence that these factors were the only variables affecting obesity. In the U.S., healthier food items tend to be a lot more expensive than unhealthy food items. As a result, even if the counties had a lot of different food options and easy access to healthier food stores, a low-income household will choose the cheapest option and ignore the health consequences.  Some counties had a small number of grocery stores and access to healthy food options, and many households do not have access to a car. The lack of access to supermarkets has a greater chance of health challenges such as diabetes, heart disease, and cancer. Unhealthy food may be a lot cheaper in the short run but there is significant evidence that unhealthy eating will lead to diabetes, cardiovascular disease, and other life-threatening diseases. The consequences, in the long run, are a lot worse. In order to end obesity in the U.S., we need to make healthier food options more affordable. If we were to conduct this study again, we would want to look at the prices of the food items and make interaction terms with the price variables and the store's variables. Prices have a lot of impact on what Americans choose to eat. Therefore, the regression with food prices might have a higher score and show a stronger relationship to the obesity rate in adults. We would also want to analyze changes in obesity rate within each county and analyze more closely the relationship with region and obesity rates.
 
