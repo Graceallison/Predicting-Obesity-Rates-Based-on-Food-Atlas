@@ -81,7 +81,7 @@ Once the features were identified, we ran a linear regression, lasso, ridge, ran
 
 |Model                                         | RMSE Train      | RMSE Test      | R2 Train          |  R2 Test  
 |-------------------------------------------   |-----------------|----------------|-------------------|----------
-| Baseline                                     |      4.48       |      4.46      |   .0              |     -.05
+| Baseline                                     |      4.48       |      4.46      |   .0              |     -.005
 | Linear Regression with all features          |      1.25       |      2.62      |   .92             |      .64
 | Linear Regression with Random Forest features|      2.32       |      2.33      |   .74             |      .69
 | Linear Regression with correlated features   |      2.25       |      2.33      |   .75             |      .72
